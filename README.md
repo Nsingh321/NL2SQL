@@ -60,7 +60,7 @@ flowchart TD
 - **FK-neighbor expansion** (`expand_with_fk_neighbors`): from the semantic seeds, walk the FK
   graph, ranking candidates by a **bridge score** (how many seeds a table connects) with a
   similarity tiebreak, and a **per-hop budget** so one hub table can't starve later hops.
-  Lifted retrieval recall from **0.72 → 1.0** on the eval set.
+  Lifted retrieval recall from **0.72 → 0.94** on the eval set.
 - **Context assembled for the generator**: compact schema summary + real DDL + **FK join paths**
   (explicit `TableA.col = TableB.col` hints — see the obfuscation finding below).
 
@@ -157,8 +157,6 @@ What each row taught, and what was done about it:
    capability limit, not a pipeline defect; proactive column-value sampling (BIRD-style) would
    likely close it further.
 
-The takeaway an interviewer cares about: *a clean 0.80 on a public database overstates real-world
-performance; measuring and then closing the memorization gap is the actual engineering.*
 
 ### Model selection
 
